@@ -1,0 +1,17 @@
+ext {
+    getStorePassword = {
+        def props = new Properties()
+        file("keystore/keystore.properties").withInputStream { props.load(it) }
+        return props.getProperty("store-password")
+    }
+
+    getKeyAlias = {
+        def props = new Properties()
+        file("keystore/keystore.properties").withInputStream { props.load(it) }
+        return props.getProperty("alias-name")
+    }
+
+    getPassword = {
+        return getStorePassword()
+    }
+}
