@@ -6,8 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 
-const val BASE_URL = "https://gogoanime.now.sh/api/v1/";
-
 interface AnimeNetworkprovider {
 
     @GET("RecentlyAddedSeries")
