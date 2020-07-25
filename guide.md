@@ -1,5 +1,3 @@
-
-
 ## Guide for developing this app.
 
 ### 1.  General rule and naming conventions :-
