@@ -22,10 +22,10 @@ interface MangaDexProvider : MangaNetworkProvider {
     ): Observable<MangaDexSearchCollection>
 
     @GET("api/manga/{mangaId}")
-    override fun fetchMangaDetails(@Path("mangaId") mangaId: Int): Observable<MangaDexManga>
+    override fun fetchMangaDetails(@Path("mangaId") mangaId: String): Observable<MangaDexManga>
 
     @GET("api/chapter/{chapterId}")
-    override fun fetchChapterDetails(@Path("chapterId") chapterId: Int): Observable<MangaDexChapter>
+    override fun fetchChapterDetails(@Path("chapterId") chapterId: String): Observable<MangaDexChapter>
 
 
 }
