@@ -2,6 +2,7 @@ package anime.stream.libnetwork.anime.commons
 
 import anime.stream.libnetwork.anime.commons.model.AnimeDataModel
 import anime.stream.libnetwork.anime.commons.model.AnimeEpisodeDataModel
+import io.reactivex.Observable
 import retrofit2.Call
 
 /*
@@ -10,17 +11,17 @@ import retrofit2.Call
 
 interface AnimeNetworkProvider {
 
-    fun getRecentlyAddedSeries(): Call<List<AnimeDataModel>>
+    fun getRecentlyAddedSeries(): Observable<List<AnimeDataModel>>
 
-    fun getSearchAnime(name: String): Call<AnimeDataModel>
+    fun searchAnime(name: String): Observable<AnimeDataModel>
 
-    fun getOnGoingSeries(): Call<List<AnimeDataModel>>
+    fun getOnGoingSeries(): Observable<List<AnimeDataModel>>
 
-    fun getPopularAnime(): Call<List<AnimeDataModel>>
+    fun getPopularAnime(): Observable<List<AnimeDataModel>>
 
-    fun getAnimeEpisodes(id: String): Call<AnimeEpisodeDataModel>
+    fun getAnimeEpisodes(id: String): Observable<AnimeEpisodeDataModel>
 
-    fun getRecentReleaseEpisodes(): Call<List<AnimeEpisodeDataModel>>
+    fun getRecentReleaseEpisodes(): Observable<List<AnimeEpisodeDataModel>>
 
 }
 

@@ -1,6 +1,7 @@
 package anime.stream.libnetwork.anime.commons.model
 
 data class AnimeEpisodeDataModel(
+    val id: String,
     val category: String,
     val genres: List<String>,
     val servers: List<Server>,
