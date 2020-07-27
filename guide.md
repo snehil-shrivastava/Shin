@@ -21,7 +21,7 @@
 		-   Package statement
 		-   Import statements
 		-   Top-level declarations
-	9. Use this style of comment
+   9. Use this style of comment
 
 			/*  
 			 * Copyright 2017 Google, Inc.  
@@ -39,8 +39,8 @@
 			// Copyright 2017 Google, Inc.  
 			//  
 			// ...
-	  10. Annotations with the "file"  [use-site target](https://kotlinlang.org/docs/reference/annotations.html#annotation-use-site-targets)  are placed between any header comment and the package declaration.
-		  **More info** - [# Advanced Kotlin - Part 2 - Use-Site Targets]([https://americanexpress.io/advanced-kotlin-use-site-targets/#:~:text=Simply%20put%2C%20annotation%20use%2Dsite,Java%20code%20generated%20by%20kapt%20.](https://americanexpress.io/advanced-kotlin-use-site-targets/#:~:text=Simply%20put%2C%20annotation%20use%2Dsite,Java%20code%20generated%20by%20kapt%20.))
+   10. Annotations with the "file"  [use-site target](https://kotlinlang.org/docs/reference/annotations.html#annotation-use-site-targets)  are placed between any header comment and the package declaration.
+      <br/>**More info** - [# Advanced Kotlin - Part 2 - Use-Site Targets]([https://americanexpress.io/advanced-kotlin-use-site-targets/#:~:text=Simply%20put%2C%20annotation%20use%2Dsite,Java%20code%20generated%20by%20kapt%20.](https://americanexpress.io/advanced-kotlin-use-site-targets/#:~:text=Simply%20put%2C%20annotation%20use%2Dsite,Java%20code%20generated%20by%20kapt%20.))
 		and  [Delegates]([https://americanexpress.io/advanced-kotlin-delegates/](https://americanexpress.io/advanced-kotlin-delegates/)) (if you don't know already please read this)
 
 
