@@ -35,4 +35,5 @@ ext {
     commonsMath = "3.6.1"
     assistedInject = "0.5.2"
     lifecycleKtx="2.3.0-alpha06"
+    gson = "2.9.0"
 }

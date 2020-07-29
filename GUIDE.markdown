@@ -65,7 +65,7 @@ read more on [https://developer.android.com/kotlin/style-guide](https://develope
     class SomeViewModel @AssistedInject constructor(
         private val application: Application,
         @Assisted private val savedStateHandle: SavedStateHandle
-    ){
+    ) : ViewModel() {
         // must be inside of the ViewModel class!
         @AssistedInject.Factory
         interface Factory : AssistedSavedStateViewModelFactory<SomeViewModel> {

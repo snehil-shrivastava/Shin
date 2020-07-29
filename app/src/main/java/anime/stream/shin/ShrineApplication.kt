@@ -5,8 +5,8 @@ import android.app.Application
 import anime.stream.shin.di.ApplicationComponent
 import anime.stream.shin.di.DaggerApplicationComponent
 
-class ShrineApplication : Application(), ComponentProvider {
 
+class ShrineApplication : Application(), ComponentProvider {
     override val component: ApplicationComponent by lazy {
         DaggerApplicationComponent.factory().create(this)
     }
