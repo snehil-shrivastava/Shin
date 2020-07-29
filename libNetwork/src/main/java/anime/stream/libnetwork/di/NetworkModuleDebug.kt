@@ -1,18 +1,24 @@
-package anime.stream.libnetwork.manga.mangadex
+package anime.stream.libnetwork.di
 
+import anime.stream.libnetwork.manga.mangadex.MangaDexConstants
+import anime.stream.libnetwork.manga.mangadex.MangaDexProvider
+import dagger.Module
+import dagger.Provides
 import okhttp3.OkHttpClient
-import okhttp3.Request
 import pl.droidsonroids.retrofit2.JspoonConverterFactory
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import java.net.URLEncoder
+import javax.inject.Named
+import javax.inject.Singleton
 
-class RetrofitApiTestHelper() {
+@Module
+class NetworkModuleDebug {
 
-    val provider = createProvider()
-
-    private fun client(): OkHttpClient {
+    @Provides
+    @Singleton
+    @Named("dOkHttp")
+    fun client(): OkHttpClient {
         return OkHttpClient.Builder().addInterceptor { chain ->
             val newReq = chain
                 .request()
@@ -27,14 +33,17 @@ class RetrofitApiTestHelper() {
         }.build()
     }
 
-
-    private fun createProvider(): MangaDexProvider {
-        return Retrofit.Builder().client(client())
+    @Provides
+    @Singleton
+    fun getMangaProvider(
+        jspoon: JspoonConverterFactory, gson: GsonConverterFactory,
+        @Named("dOkHttp") okHttpClient: OkHttpClient
+    ): MangaDexProvider {
+        return Retrofit.Builder().client(okHttpClient)
             .baseUrl(MangaDexConstants.BASE_URL)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .addConverterFactory(JspoonConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(jspoon)
+            .addConverterFactory(gson)
             .build().create(MangaDexProvider::class.java)
     }
-
 }

@@ -60,6 +60,30 @@ read more on [https://developer.android.com/kotlin/style-guide](https://develope
 
 @Also read - [https://jeroenmols.com/blog/2016/03/07/resourcenaming/](https://jeroenmols.com/blog/2016/03/07/resourcenaming/)
 
+1.3 *View Model Injection With Safe Handle*
+
+    class SomeViewModel @AssistedInject constructor(
+        private val application: Application,
+        @Assisted private val savedStateHandle: SavedStateHandle
+    ){
+        // must be inside of the ViewModel class!
+        @AssistedInject.Factory
+        interface Factory : AssistedSavedStateViewModelFactory<SomeViewModel> {
+            override fun create(savedStateHandle: SavedStateHandle): SomeViewModel  // may be ommited prior kotlin 1.3.60 or after PR #121 in AssistedInject lib
+        }
+    }
+
+and add this as module
+
+@AssistedModule
+@Module(includes=[AssistedInject_BuilderModule::class])
+abstract class BuilderModule {
+    @Binds
+    @IntoMap
+    @ViewModelKey(SomeViewModel::class)
+    abstract fun bindVMFactory(f: SomeViewModel.Factory): AssistedSavedStateViewModelFactory<out ViewModel>
+}
+
 ---
 ### 2. Using Dokka for generation of documents.
 Apply the plugin to the `build.gradle` of the module(s) for which you would like to generate documentation

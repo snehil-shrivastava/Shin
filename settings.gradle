@@ -1,3 +1,6 @@
+include ':core'
+include ':ui'
+include ':storage'
 include ':libNetwork'
 include ':app'
 rootProject.name = "Shin"
