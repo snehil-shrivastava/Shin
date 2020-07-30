@@ -1,8 +1,7 @@
-package anime.stream.libnetwork.anime.commons.model
+package anime.stream.shin.base.commons.model
 
-data class AnimeDataModel(
-    val id: String,
-    val episodes: List<String>,
+data class AnimeModel(
+    val episodes: List<Episode>,
     val genres: List<String>,
     val img: String,
     val otherName: String,

@@ -1,4 +1,4 @@
-package anime.stream.libnetwork.anime.commons.model
+package anime.stream.shin.base.commons.model
 
 data class Server(
     val iframe: String,
