@@ -9,4 +9,5 @@
     <color name="secondary_text">#757575</color>
     <color name="icons">#FFFFFF</color>
     <color name="red">#DD2C00</color>
+    <color name="appBackground">#fff</color>
 </resources>

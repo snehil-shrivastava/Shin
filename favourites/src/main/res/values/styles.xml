@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="spotifyHeaderRadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:button">@android:color/transparent</item>
+        <item name="buttonCompat">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textAppearance">@style/spotifyHeaderText</item>
+        <item name="android:textColor" tools:override="true">@drawable/spotify_selector</item>
+        <item name="android:paddingStart">20dp</item>
+    </style>
+
+    <style name="spotifyHeaderText" parent="TextAppearance.AppCompat.Display1">
+        <item name="fontFamily">@font/sfproblack</item>
+    </style>
+</resources>

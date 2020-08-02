@@ -1,4 +1,5 @@
 @file:JvmName("DaggerExtension")
+@file:Suppress("UNCHECKED_CAST")
 
 package anime.stream.core.di
 
@@ -22,7 +23,7 @@ inline fun <reified T : ViewModel> Fragment.viewModel(
     crossinline provider: () -> T
 ) = viewModels<T> {
     object : ViewModelProvider.Factory {
-        override fun <T : ViewModel> create(modelClass: java.lang.Class<T>) = provider() as T
+        override fun <T : ViewModel> create(modelClass: Class<T>) = provider() as T
     }
 }
 
@@ -30,6 +31,7 @@ inline fun <reified T : ViewModel> Fragment.activityViewModel(
     crossinline provider: () -> T
 ) = activityViewModels<T> {
     object : ViewModelProvider.Factory {
-        override fun <T : ViewModel> create(modelClass: java.lang.Class<T>) = provider() as T
+        override fun <T : ViewModel> create(modelClass: Class<T>) = provider() as T
     }
 }
+

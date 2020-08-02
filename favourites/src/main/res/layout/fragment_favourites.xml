@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="fav"
+            type="anime.stream.favourites.viewmodels.FavouritesViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/radio_btn_anime"
+                style="@style/spotifyHeaderRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{fav.MState}"
+                android:onClick="@{() -> fav.selectAnimePage()}"
+                android:text="@string/anime" />
+
+            <RadioButton
+                android:id="@+id/radio_btn_manga"
+                style="@style/spotifyHeaderRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{!fav.MState}"
+                android:onClick="@{() -> fav.selectMangaPage()}"
+                android:text="@string/manga" />
+        </RadioGroup>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+            bind:onPageChange="@{fav}"
+            bind:selectAnimePage="@{fav.MState}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

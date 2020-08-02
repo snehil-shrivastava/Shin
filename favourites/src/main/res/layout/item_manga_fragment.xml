@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_height"
+    android:paddingStart="@dimen/manga_item_padding_start"
+    android:paddingTop="@dimen/manga_item_padding_y"
+    android:paddingEnd="@dimen/manga_item_padding_start"
+    android:paddingBottom="@dimen/manga_item_padding_y"
+    tools:context=".MangaFragment">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/thumbnail"
+        android:layout_width="@dimen/thumbnail_height"
+        android:layout_height="@dimen/thumbnail_width"
+        android:layout_gravity="center"
+        android:contentDescription="@string/thumbnail"
+        app:actualImageScaleType="focusCrop"
+        app:backgroundImage="@color/grey_black"
+        app:fadeDuration="300"
+        app:failureImage="@drawable/ic_baseline_broken_image_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:placeholderImage="@color/grey"
+        app:placeholderImageScaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/manga_item_padding_start"
+        android:paddingStart="@dimen/paddingTitleTop"
+        android:paddingTop="@dimen/paddingTitleTop"
+        android:paddingEnd="@dimen/paddingTitleTop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/thumbnail"
+        app:layout_constraintTop_toTopOf="@+id/thumbnail" />
+
+    <RatingBar
+        android:id="@+id/rating"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginStart="20dp"
+        android:numStars="5"
+        android:rating="3.7"
+        android:saveEnabled="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/thumbnail"
+        app:layout_constraintStart_toEndOf="@+id/thumbnail"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <Button
+        android:id="@+id/like"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/manga_item_heart_btn_small"
+        app:layout_constraintBottom_toBottomOf="@+id/thumbnail"
+        app:layout_constraintEnd_toEndOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

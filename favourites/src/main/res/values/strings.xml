@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="anime">Anime</string>
+    <string name="manga">Manga</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="thumbnail">thumbnail</string>
+    <string name="empty_manga_list_manga_fragment">Your manga will appear here</string>
+</resources>

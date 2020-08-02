@@ -4,4 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fav_fragment"
+        android:name="anime.stream.favourites.FavouritesFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

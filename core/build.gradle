@@ -30,6 +30,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -37,26 +41,29 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.1'
     implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation "com.jakewharton.timber:timber:4.7.1"
 
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleKtx"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleKtx"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleKtx"
-    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycleKtx"
-    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycleKtx"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleKtx"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0"
 
-    implementation "androidx.fragment:fragment-ktx:$fragmentKtx"
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
+    implementation "androidx.fragment:fragment-ktx:1.2.5"
 
-    testImplementation "junit:junit:$junit"
+    testImplementation "junit:junit:4.13"
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    implementation 'com.facebook.fresco:fresco:2.3.0'
 
-    api "com.google.dagger:dagger:$dagger"
-    kapt "com.google.dagger:dagger-android-processor:$dagger"
-    kapt "com.google.dagger:dagger-compiler:$dagger"
+    api "com.google.dagger:dagger:2.28.3"
+    kapt "com.google.dagger:dagger-android-processor:2.28.3"
+    kapt "com.google.dagger:dagger-compiler:2.28.3"
 
-    compileOnly "com.squareup.inject:assisted-inject-annotations-dagger2:$assistedInject"
-    kapt "com.squareup.inject:assisted-inject-processor-dagger2:$assistedInject"
+    compileOnly "com.squareup.inject:assisted-inject-annotations-dagger2:0.5.2"
+    kapt "com.squareup.inject:assisted-inject-processor-dagger2:0.5.2"
 }

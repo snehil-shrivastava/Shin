@@ -9,6 +9,7 @@ ext {
     constraintLayout = "2.0.0-beta8"
     lifecycle = "2.2.0"
     room = "2.2.5"
+    fragment_version = "1.2.5"
     workManager = "2.3.4"
     legacySupport = "1.0.0"
     coreTesting = "2.1.0"
@@ -24,7 +25,7 @@ ext {
     ankoVersion = "0.10.4"
     glide = "4.11.0"
     lottieVersion = "2.6.0-beta19"
-    okHttp = "3.14.9"
+    okHttp = '4.8.0'
     rxJava = "2.1.10"
     rxAndroid = "2.1.1"
     timber = "4.7.1"
@@ -36,4 +37,6 @@ ext {
     assistedInject = "0.5.2"
     lifecycleKtx="2.3.0-alpha06"
     gson = "2.9.0"
+    room_version = "2.2.5"
+    adapterRxjava2 = "2.9.0"
 }
