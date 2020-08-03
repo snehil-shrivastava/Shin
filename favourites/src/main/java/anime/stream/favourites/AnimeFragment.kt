@@ -6,7 +6,7 @@ import anime.stream.favourites.di.injector
 class AnimeFragment : Fragment(R.layout.fragment_anime) {
 
     private val mangaNetworkService by lazy { injector.networkService }
-    private val fav by lazy { injector.serviceImpl }
+    private val favouriteService by lazy { injector.serviceImpl }
 
     companion object {
 

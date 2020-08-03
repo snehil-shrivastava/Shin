@@ -60,10 +60,6 @@ android {
             keyPassword getPassword()
         }
     }
-
-    dataBinding {
-        enabled = true
-    }
     
     buildTypes {
         debug {
@@ -113,7 +109,7 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:2.28.3"
     kapt "com.google.dagger:dagger-compiler:2.28.3"
 
-    androidTestImplementation "androidx.arch.core:core-testing:$coreTesting"
+    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
     androidTestImplementation 'androidx.test:rules:1.2.0'
     androidTestImplementation 'androidx.test:runner:1.2.0'
 

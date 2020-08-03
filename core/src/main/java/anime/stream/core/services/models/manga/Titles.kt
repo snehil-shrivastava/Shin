@@ -1,4 +1,4 @@
-package anime.stream.core.services.models
+package anime.stream.core.services.models.manga
 
 interface Titles {
     val cover: String?

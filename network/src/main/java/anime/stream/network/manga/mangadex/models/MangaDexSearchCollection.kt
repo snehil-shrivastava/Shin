@@ -1,11 +1,12 @@
 package anime.stream.network.manga.mangadex.models
 
-import anime.stream.core.services.models.Collection
+import anime.stream.core.services.models.manga.Collection
 import anime.stream.network.manga.mangadex.util.Utils.getMangaId
 import org.jsoup.nodes.Element
 import pl.droidsonroids.jspoon.annotation.Selector
 
-class MangaDexSearchCollection : Collection {
+class MangaDexSearchCollection :
+    Collection {
 
     @Selector("#content > div.row.mt-1.mx-0")
     private lateinit var main: Element

@@ -5,9 +5,7 @@ package anime.stream.favourites
  * */
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,31 +15,26 @@ import anime.stream.favourites.di.injector
 import anime.stream.favourites.viewmodels.MangaViewModel
 import kotlinx.android.synthetic.main.fragment_manga.view.*
 
-class MangaFragment : Fragment() {
+class MangaFragment : Fragment(R.layout.fragment_manga) {
 
     private val viewModel by viewModel {
         injector.viewModel.create(this).create(MangaViewModel::class.java)
     }
 
-    private val adapter by lazy {
-        RecyclerViewMangaAdapter(emptyList()) {
-            viewModel.removeMangaItem(it)
-        }
-    }
+    private val adapter by lazy { RecyclerViewMangaAdapter() }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val root: View = inflater.inflate(R.layout.fragment_manga, container, false)
+    override fun onViewCreated(root: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(root, savedInstanceState)
         root.mangaList.adapter = adapter
         root.mangaList.layoutManager = LinearLayoutManager(requireActivity())
         viewModel.mangaFavourites.observe(this.viewLifecycleOwner, Observer {
-            if (it.isNullOrEmpty()) {
+            if (it == null) {
                 hideRecyclerView(root)
             } else {
-                adapter.update(it)
+                adapter.submitData(this.lifecycle, it)
                 showRecyclerView(root)
             }
         })
-        return root
     }
 
     private fun hideRecyclerView(root: View) {

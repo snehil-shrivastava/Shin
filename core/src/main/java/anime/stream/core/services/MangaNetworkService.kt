@@ -1,8 +1,8 @@
 package anime.stream.core.services
 
-import anime.stream.core.services.models.Chapter
-import anime.stream.core.services.models.Collection
-import anime.stream.core.services.models.Manga
+import anime.stream.core.services.models.manga.Chapter
+import anime.stream.core.services.models.manga.Collection
+import anime.stream.core.services.models.manga.Manga
 import io.reactivex.Observable
 
 interface MangaNetworkService {

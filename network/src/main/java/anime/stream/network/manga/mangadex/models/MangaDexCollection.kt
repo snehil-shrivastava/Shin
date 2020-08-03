@@ -1,6 +1,6 @@
 package anime.stream.network.manga.mangadex.models
 
-import anime.stream.core.services.models.Collection
+import anime.stream.core.services.models.manga.Collection
 import anime.stream.network.manga.mangadex.util.Utils.getChapterId
 import anime.stream.network.manga.mangadex.util.Utils.getMangaId
 import org.jsoup.nodes.Element

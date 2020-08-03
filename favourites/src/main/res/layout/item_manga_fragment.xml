@@ -53,13 +53,4 @@
         app:layout_constraintStart_toEndOf="@+id/thumbnail"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
-    <Button
-        android:id="@+id/like"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:background="@drawable/manga_item_heart_btn_small"
-        app:layout_constraintBottom_toBottomOf="@+id/thumbnail"
-        app:layout_constraintEnd_toEndOf="@+id/title"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

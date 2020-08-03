@@ -1,8 +1,12 @@
 package anime.stream.network.anime.commons
 
-import anime.stream.network.anime.commons.model.AnimeDataModel
-import anime.stream.network.anime.commons.model.AnimeEpisodeDataModel
+import anime.stream.network.anime.animegogo.model.AnimeEpisodeMain
+import anime.stream.network.anime.animegogo.model.AnimeMain
+import anime.stream.network.anime.animegogo.model.AnimePopularMain
+import anime.stream.network.anime.animegogo.model.AnimeSearchMain
 import io.reactivex.Observable
+import retrofit2.http.GET
+import retrofit2.http.Path
 
 /*
 * An
@@ -10,17 +14,19 @@ import io.reactivex.Observable
 
 interface AnimeNetworkProvider {
 
-    fun getRecentlyAddedSeries(): Observable<List<AnimeDataModel>>
+    fun getRecentlyAddedSeries(): Observable<AnimeMain>
 
-    fun searchAnime(name: String): Observable<AnimeDataModel>
+    fun getSearchAnime(name: String): Observable<AnimeSearchMain>
 
-    fun getOnGoingSeries(): Observable<List<AnimeDataModel>>
 
-    fun getPopularAnime(): Observable<List<AnimeDataModel>>
+    fun getAnimeEpisodes(id: String): Observable<AnimeEpisodeMain>
 
-    fun getAnimeEpisodes(id: String): Observable<AnimeEpisodeDataModel>
+    fun getRecentReleaseEpisodes(): Observable<AnimeEpisodeMain>
 
-    fun getRecentReleaseEpisodes(): Observable<List<AnimeEpisodeDataModel>>
+    @GET(value = "Popular/{page}")
+    fun getPopularAnime(@Path(value = "page") page: String): Observable<AnimePopularMain>
 
+    @GET(value = "OngoingSeries/{page}")
+    fun getOnGoingSeries(@Path(value = "page") page: String): Observable<AnimeMain>
 }
 

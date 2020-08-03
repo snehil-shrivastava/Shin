@@ -1,9 +1,8 @@
 package anime.stream.favourites.viewmodels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import androidx.paging.PagingData
+import androidx.paging.rxjava2.cachedIn
 import anime.stream.core.di.AssistedSavedStateViewModelFactory
 import anime.stream.favourites.repository.MangaFavouritesRepository
 import anime.stream.favourites.room.MangaFavourites
@@ -18,12 +17,12 @@ constructor(
     private val repository: MangaFavouritesRepository,
     @Assisted private val savedStateHandle: SavedStateHandle
 ) : ViewModel(),
-    Consumer<List<MangaFavourites>> {
+    Consumer<PagingData<MangaFavourites>> {
 
-    private val mMangaFavorites = MutableLiveData<List<MangaFavourites>>()
+    private val mMangaFavorites = MutableLiveData<PagingData<MangaFavourites>>()
     private val mBusy = MutableLiveData<Boolean>()
 
-    val mangaFavourites: LiveData<List<MangaFavourites>> = mMangaFavorites
+    val mangaFavourites: LiveData<PagingData<MangaFavourites>> = mMangaFavorites
 
     private val composite = CompositeDisposable()
 
@@ -31,8 +30,8 @@ constructor(
         refreshList()
     }
 
-    fun refreshList() {
-        composite.add(repository.getAllMangaFav().subscribe(this))
+    private fun refreshList() {
+        composite.add(repository.getAllMangaFav().cachedIn(viewModelScope).subscribe(this))
     }
 
     override fun onCleared() {
@@ -47,7 +46,7 @@ constructor(
         override fun create(savedStateHandle: SavedStateHandle): MangaViewModel
     }
 
-    override fun accept(t: List<MangaFavourites>?) {
+    override fun accept(t: PagingData<MangaFavourites>?) {
         t?.let {
             mMangaFavorites.postValue(it)
         }

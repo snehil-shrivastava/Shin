@@ -1,6 +1,6 @@
 package anime.stream.network.manga.mangadex
 
-import anime.stream.core.services.models.Collection
+import anime.stream.core.services.models.manga.Collection
 import anime.stream.network.di.DaggerNetworkComponent
 import org.junit.Assert
 import org.junit.Test

@@ -1,6 +1,6 @@
 package anime.stream.network.manga.mangadex.models
 
-import anime.stream.core.services.models.Manga
+import anime.stream.core.services.models.manga.Manga
 import anime.stream.network.manga.mangadex.MangaDexConstants
 import com.google.gson.annotations.SerializedName
 

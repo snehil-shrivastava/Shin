@@ -1,4 +1,4 @@
-package anime.stream.network.anime.commons.model
+package anime.stream.network.anime.animegogo.model
 
 data class Server(
     val iframe: String,

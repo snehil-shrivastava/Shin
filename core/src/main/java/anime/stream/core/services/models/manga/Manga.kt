@@ -1,4 +1,4 @@
-package anime.stream.core.services.models
+package anime.stream.core.services.models.manga
 
 /*
  * Must call set ID after getting the object instance

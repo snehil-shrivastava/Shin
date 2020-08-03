@@ -1,5 +1,6 @@
 package anime.stream.favourites.room
 
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -11,15 +12,16 @@ import io.reactivex.Flowable
 interface MangaFavouritesDao {
 
 
-    @Query("SELECT * FROM `Manga Favourites`")
-    fun getAll(): Flowable<List<MangaFavourites>>
+    @Query("SELECT * FROM `Manga Favourites` ORDER BY title COLLATE NOCASE ASC")
+    fun getAll(): PagingSource<Int, MangaFavourites>
+
 
     @Query("SELECT * FROM `Manga Favourites` WHERE id = :id")
     fun getById(id: String): Flowable<MangaFavourites>
 
 
-    @Query("SELECT * FROM `Manga Favourites` WHERE title LIKE :query")
-    fun search(query: String): Flowable<List<MangaFavourites>>
+    @Query("SELECT * FROM `Manga Favourites` WHERE title LIKE :query ORDER BY title COLLATE NOCASE ASC")
+    fun search(query: String): PagingSource<Int, MangaFavourites>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(manga: MangaFavourites): Completable
