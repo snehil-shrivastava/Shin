@@ -1,5 +1,6 @@
+include ':home'
 include ':core'
-include ':ui'
+include ':search'
 include ':network'
 include ':favourites'
 include ':app'

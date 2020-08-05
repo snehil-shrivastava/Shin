@@ -1,8 +1,6 @@
 package anime.stream.favourites.adapters
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -13,11 +11,23 @@ import kotlinx.android.synthetic.main.item_manga_fragment.view.*
 class RecyclerViewMangaAdapter :
     PagingDataAdapter<MangaFavourites, RecyclerViewMangaAdapter.MangaViewHolder>(diffCallback) {
 
-    inner class MangaViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    inner class MangaViewHolder(private val view: View) : RecyclerView.ViewHolder(view),
+        View.OnCreateContextMenuListener {
         fun bind(mangaFavourites: MangaFavourites) {
             view.thumbnail.setImageURI(mangaFavourites.cover)
             view.title.text = mangaFavourites.title
-            view.rating.rating = mangaFavourites.rating.toFloat()
+            val mRating = mangaFavourites.rating.toFloat() / 2
+            view.rating.rating = mRating
+            view.setOnCreateContextMenuListener(this)
+        }
+
+        override fun onCreateContextMenu(
+            menu: ContextMenu?,
+            v: View?,
+            menuInfo: ContextMenu.ContextMenuInfo?
+        ) {
+            menu?.setHeaderView(v?.thumbnail)
+            MenuInflater(v?.context).inflate(R.menu.menu_manga_item, menu)
         }
     }
 

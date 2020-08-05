@@ -9,4 +9,13 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
+    <style name="ChipNavBar">
+        <item name="android:padding">7dp</item>
+        <item name="bubbletab_horizontal_padding">20dp</item>
+        <item name="android:elevation">16dp</item>
+        <item name="bubbletab_icon_size">20dp</item>
+        <item name="bubbletab_title_size">16sp</item>
+        <item name="bubbletab_icon_padding">5sp</item>
+        <item name="bubbletab_vertical_padding">10dp</item>
+    </style>
 </resources>

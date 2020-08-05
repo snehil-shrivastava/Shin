@@ -46,7 +46,7 @@
         android:layout_gravity="bottom|end"
         android:layout_marginStart="20dp"
         android:numStars="5"
-        android:rating="3.7"
+        android:stepSize="0.25"
         android:saveEnabled="true"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/thumbnail"

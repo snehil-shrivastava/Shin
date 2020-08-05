@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_nav_bar"
+    app:startDestination="@id/menu_nav_bar_home">
+
+    <fragment
+        android:id="@+id/menu_nav_bar_favourites"
+        android:name="anime.stream.favourites.FavouritesFragment"
+        android:label="@string/menu_favourites" />
+    <fragment
+        android:id="@+id/menu_nav_bar_home"
+        android:name="anime.stream.home.HomeFragment"
+        android:label="Home" />
+    <fragment
+        android:id="@+id/menu_nav_bar_search"
+        android:name="anime.stream.search.SearchFragment"
+        android:label="Search" />
+</navigation>

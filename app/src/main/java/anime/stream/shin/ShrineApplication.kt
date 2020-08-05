@@ -46,7 +46,6 @@ class ShrineApplication : Application(), ComponentProvider, FavouriteComponentPr
         }
     }
 
-
     /** A tree which logs important information for crash reporting.  */
     private class CrashReportingTree : Timber.Tree() {
         override fun log(priority: Int, tag: String?, @NonNull message: String, t: Throwable?) {

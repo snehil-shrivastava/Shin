@@ -10,6 +10,7 @@ import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class MangaFavouritesRepository @Inject constructor(
@@ -18,10 +19,10 @@ class MangaFavouritesRepository @Inject constructor(
 ) {
 
 
-    fun getAllMangaFav(): Flowable<PagingData<MangaFavourites>> {
+    fun getAllMangaFav(): Flow<PagingData<MangaFavourites>> {
         return Pager(pagerConfig) {
             mangaDatabase.mangaFavouritesDao().getAll()
-        }.flowable
+        }.flow
     }
 
     fun searchMangaFav(query: String): Flowable<PagingData<MangaFavourites>> {
