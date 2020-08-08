@@ -13,7 +13,6 @@ object Utils {
         return if (matches.find()) matches.group(2) ?: "" else ""
     }
 
-
     @JvmStatic
     private val mangaId = Pattern.compile("(/title/)([0-9]*)")
 

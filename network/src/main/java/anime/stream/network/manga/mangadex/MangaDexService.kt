@@ -27,6 +27,4 @@ interface MangaDexService : MangaNetworkService {
     @GET("api/chapter/{chapterId}")
     override fun fetchChapterDetails(@Path("chapterId") chapterId: String): Observable<MangaDexChapter>
 
-
 }
-

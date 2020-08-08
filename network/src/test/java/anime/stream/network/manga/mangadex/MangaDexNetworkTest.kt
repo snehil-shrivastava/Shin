@@ -9,7 +9,7 @@ class MangaDexNetworkTest {
 
     @Test
     fun searchTest() {
-        val provider = DaggerNetworkComponent.factory().create().debugMangaDexProvider
+        val provider = DaggerNetworkComponent.factory().create().mangaDexProvider
         provider.searchManga("Dragon Ball", 0).blockingForEach { manga ->
             manga?.let { it ->
                 (it as Collection).let { safe ->

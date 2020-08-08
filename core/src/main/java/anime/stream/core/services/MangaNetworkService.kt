@@ -15,4 +15,3 @@ interface MangaNetworkService {
 
     fun fetchChapterDetails(chapterId: String): Observable<out Chapter>
 }
-

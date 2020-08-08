@@ -5,7 +5,6 @@ import com.squareup.inject.assisted.dagger2.AssistedModule
 import dagger.Module
 import dagger.multibindings.Multibinds
 
-
 @AssistedModule
 @Module(includes = [AssistedInject_CoreModule::class])
 abstract class CoreModule {

@@ -34,7 +34,7 @@ class ShrineApplication : Application(), ComponentProvider, FavouriteComponentPr
 
     // Services
     private val favouriteService: FavouriteService by lazy { favouriteComponent.serviceImpl }
-    private val networkService: MangaNetworkService by lazy { networkComponent.debugMangaDexProvider }
+    private val networkService: MangaNetworkService by lazy { networkComponent.mangaDexProvider }
 
     override fun onCreate() {
         super.onCreate()
@@ -64,6 +64,5 @@ class ShrineApplication : Application(), ComponentProvider, FavouriteComponentPr
     }
 
 }
-
 
 val Activity.injector get() = (application as ComponentProvider).component

@@ -1,6 +1,5 @@
 package anime.stream.core.di
 
-
 import androidx.lifecycle.ViewModel
 import dagger.MapKey
 import kotlin.reflect.KClass

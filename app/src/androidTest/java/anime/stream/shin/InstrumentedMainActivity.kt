@@ -19,7 +19,6 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-
 /**
  * Instrumented test, which will execute on an Android device.
  *
@@ -75,7 +74,6 @@ class InstrumentedMainActivity {
         )
         bubble.perform(ViewActions.click())
 
-
         val linearLayout = Espresso.onView(
             Matchers.allOf(
                 childAtPosition(
@@ -110,7 +108,6 @@ class InstrumentedMainActivity {
 
         recyclerView.perform(ViewActions.swipeRight())
 
-
         val bubble2 = Espresso.onView(
             Matchers.allOf(
                 ViewMatchers.withId(R.id.menu_nav_bar_home),
@@ -131,7 +128,8 @@ class InstrumentedMainActivity {
     }
 
     private fun childAtPosition(
-        parentMatcher: Matcher<View>, position: Int
+        parentMatcher: Matcher<View>,
+        position: Int
     ): Matcher<View> {
 
         return object : TypeSafeMatcher<View>() {
@@ -142,8 +140,8 @@ class InstrumentedMainActivity {
 
             public override fun matchesSafely(view: View): Boolean {
                 val parent = view.parent
-                return parent is ViewGroup && parentMatcher.matches(parent)
-                        && view == parent.getChildAt(position)
+                return parent is ViewGroup && parentMatcher.matches(parent) &&
+                        view == parent.getChildAt(position)
             }
         }
     }

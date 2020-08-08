@@ -17,6 +17,10 @@ class NetworkModuleProduction {
 
     @Provides
     @Singleton
+    fun rxJavaAdapter(): RxJava2CallAdapterFactory = RxJava2CallAdapterFactory.create()
+
+    @Provides
+    @Singleton
     fun jspoonConverterFactory(): JspoonConverterFactory = JspoonConverterFactory.create()
 
     @Provides

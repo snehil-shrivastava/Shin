@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">Shin</string>
+    <string name="app_name">Anime Shrine</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_search">Search</string>
     <string name="menu_favourites">Favourites</string>
+    <string name="content_description_splash_screen">Splash Screen</string>
 </resources>

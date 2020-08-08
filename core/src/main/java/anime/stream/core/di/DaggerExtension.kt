@@ -34,4 +34,3 @@ inline fun <reified T : ViewModel> Fragment.activityViewModel(
         override fun <T : ViewModel> create(modelClass: Class<T>) = provider() as T
     }
 }
-

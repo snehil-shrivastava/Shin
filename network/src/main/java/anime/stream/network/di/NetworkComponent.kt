@@ -1,6 +1,8 @@
 package anime.stream.network.di
 
+import anime.stream.network.animekisa.AnimeKisaService
 import anime.stream.network.manga.mangadex.MangaDexService
+import anime.stream.network.parser.IServerToLink
 import dagger.Component
 import javax.inject.Singleton
 
@@ -15,5 +17,10 @@ interface NetworkComponent {
         fun create(): NetworkComponent
     }
 
-    val debugMangaDexProvider: MangaDexService
+    val mangaDexProvider: MangaDexService
+
+    val animeKisaService: AnimeKisaService
+
+    val IServerToLinkService: IServerToLink
+
 }

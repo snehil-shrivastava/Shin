@@ -1,6 +1,5 @@
 package anime.stream.network.manga.mangadex.models
 
-
 import anime.stream.core.services.models.manga.Titles
 
 data class MangaDexTitles(
