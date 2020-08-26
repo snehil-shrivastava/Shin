@@ -5,7 +5,7 @@
 configurations.create("ktlint")
 
 dependencies {
-    ktlint 'com.pinterest:ktlint:0.37.2'
+    ktlint "com.pinterest:ktlint:0.36.0"
 }
 
 ext.exclusions = "import-ordering, no-wildcard-imports, no-blank-line-before-rbrace"
