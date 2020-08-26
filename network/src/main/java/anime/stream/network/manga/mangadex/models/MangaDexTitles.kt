@@ -10,4 +10,9 @@ data class MangaDexTitles(
     override val time: String?,
     override val chapterName: String?,
     override val chapterId: String?
-) : Titles
+) : Titles {
+
+    fun getTitleId(): String {
+        return mangaId ?: chapterId ?: throw IllegalStateException("Expected at least one id")
+    }
+}

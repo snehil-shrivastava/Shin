@@ -2,7 +2,7 @@ package anime.stream.core.services.models.manga
 
 interface Titles {
     val cover: String?
-
+    // Hide view(View.GONE) when null or blank
     val mangaName: String?
 
     val mangaId: String?

@@ -6,7 +6,7 @@ interface Collection {
 
     fun getCollectionName(id: Int): String
 
-    fun getList(id: Int): MutableList<out Titles>
+    fun getList(id: Int): List<Titles>
 
     fun preProcess()
 }

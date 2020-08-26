@@ -3,11 +3,9 @@ package anime.stream.favourites.repository
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import androidx.paging.rxjava2.flowable
 import anime.stream.favourites.room.MangaDatabase
 import anime.stream.favourites.room.MangaFavourites
 import io.reactivex.Completable
-import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.flow.Flow
@@ -25,10 +23,10 @@ class MangaFavouritesRepository @Inject constructor(
         }.flow
     }
 
-    fun searchMangaFav(query: String): Flowable<PagingData<MangaFavourites>> {
+    fun searchMangaFav(query: String): Flow<PagingData<MangaFavourites>> {
         return Pager(pagerConfig) {
             mangaDatabase.mangaFavouritesDao().search(query)
-        }.flowable
+        }.flow
     }
 
     fun removeFromMangaFavourite(id: String): Completable {

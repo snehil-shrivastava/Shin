@@ -6,6 +6,7 @@ import anime.stream.network.manga.mangadex.models.MangaDexCollection
 import anime.stream.network.manga.mangadex.models.MangaDexManga
 import anime.stream.network.manga.mangadex.models.MangaDexSearchCollection
 import io.reactivex.Observable
+import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -13,7 +14,7 @@ import retrofit2.http.Query
 interface MangaDexService : MangaNetworkService {
 
     @GET("/")
-    override fun getMangaTitles(): Observable<MangaDexCollection>
+    override fun getMangaTitles(): Single<MangaDexCollection>
 
     @GET("search")
     override fun searchManga(

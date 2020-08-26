@@ -22,6 +22,18 @@ data class MangaDexManga(
 
     override fun coverUrl() = MangaDexConstants.BASE_URL + manga.coverUrl
 
+    override fun author() = manga.author
+
+    override fun isAdult(): Boolean = manga.hentai == 1
+
+    override fun lastChapter() = manga.lastChapter
+
+    override fun description() = manga.description
+
+    override fun chapters() = chapter.map {
+        Pair(it.key, it.value.chapter)
+    }.toCollection(ArrayList())
+
     data class MapValue(
         @SerializedName("chapter")
         val chapter: String,

@@ -1,13 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/appBackground</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-    </style>
 
     <style name="ChipNavBar">
         <item name="android:padding">7dp</item>
@@ -17,5 +9,11 @@
         <item name="bubbletab_title_size">16sp</item>
         <item name="bubbletab_icon_padding">5sp</item>
         <item name="bubbletab_vertical_padding">10dp</item>
+        <item name="bubbletab_disabled_icon_color">@color/white_50</item>
+        <item name="android:background">@drawable/background_navigation_bar</item>
+    </style>
+
+    <style name="Theme.MangaShrine.SplashScreen">
+        <item name="android:windowBackground">@drawable/ic_splash_screen</item>
     </style>
 </resources>

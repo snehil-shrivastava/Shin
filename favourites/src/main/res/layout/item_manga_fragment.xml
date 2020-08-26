@@ -17,13 +17,13 @@
         android:layout_gravity="center"
         android:contentDescription="@string/thumbnail"
         app:actualImageScaleType="focusCrop"
-        app:backgroundImage="@color/grey_black"
+        app:backgroundImage="@color/black_700"
         app:fadeDuration="300"
         app:failureImage="@drawable/ic_baseline_broken_image_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:placeholderImage="@color/grey"
+        app:placeholderImage="@color/black_600"
         app:placeholderImageScaleType="fitCenter" />
 
     <TextView

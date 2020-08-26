@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.Observable
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
@@ -20,8 +21,24 @@ import javax.inject.Singleton
 
 class FavouritesFragment : Fragment() {
 
-    private val vmFactory by lazy { injector.viewModel }
-//    private val mAdapter by lazy {PagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)}
+    private val viewModel by lazy {
+        injector.viewModel.create(this).create(FavouritesViewModel::class.java)
+    }
+
+    private val mPagerAdapter by lazy {
+        PagerAdapter(
+            childFragmentManager,
+            viewLifecycleOwner.lifecycle
+        )
+    }
+
+    private val callback = object : Observable.OnPropertyChangedCallback() {
+        override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
+            viewModel.searchText.get()?.let {
+                mPagerAdapter.search(container.currentItem, it)
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,14 +48,16 @@ class FavouritesFragment : Fragment() {
         val binding: FragmentFavouritesBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_favourites, cont, false
         )
-        binding.fav = vmFactory.create(this).create(FavouritesViewModel::class.java)
+        viewModel.searchText.addOnPropertyChangedCallback(callback)
+        binding.container.adapter = mPagerAdapter
+        binding.fav = viewModel
         binding.lifecycleOwner = this
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        container.adapter = PagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
+    override fun onDestroy() {
+        viewModel.searchText.removeOnPropertyChangedCallback(callback)
+        super.onDestroy()
     }
 
     @Singleton
@@ -49,27 +68,29 @@ class FavouritesFragment : Fragment() {
         fun getInstance() = FavouritesFragment()
     }
 
-    private inner class PagerAdapter(fa: FragmentManager, lifecycle: Lifecycle) :
+    private class PagerAdapter(fa: FragmentManager, lifecycle: Lifecycle) :
         FragmentStateAdapter(fa, lifecycle) {
+
         private val pageCount: Int = 2
 
-        private var animeFragment: AnimeFragment? = AnimeFragment.getInstance()
-        private var mangaFragment: MangaFragment? = MangaFragment.getInstance()
+        private var animeFragment: AnimeFragment = AnimeFragment.getInstance()
+        private var mangaFragment: MangaFragment = MangaFragment.getInstance()
 
         override fun getItemCount(): Int = pageCount
 
         override fun createFragment(position: Int): Fragment {
             return when (position) {
-                ANIME -> animeFragment!!
-                MANGA -> mangaFragment!!
-                else -> animeFragment!!
+                ANIME -> animeFragment
+                MANGA -> mangaFragment
+                else -> animeFragment
             }
         }
 
-        fun dispose() {
-            animeFragment = null
-            mangaFragment = null
+        fun search(position: Int, query: String) {
+            when (position) {
+                ANIME -> animeFragment.search(query)
+                MANGA -> mangaFragment.search(query)
+            }
         }
-
     }
 }

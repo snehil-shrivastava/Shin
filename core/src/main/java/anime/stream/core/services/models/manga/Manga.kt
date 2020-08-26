@@ -8,17 +8,16 @@ interface Manga {
     fun title(): String
     fun rating(): String
     fun coverUrl(): String
+    fun author(): String
+    fun isAdult(): Boolean
+    fun lastChapter(): String
+    fun description(): String
+    fun chapters(): ArrayList<Pair<Int, String>>
     val id: String
 }
 
 fun Manga.setId(id_: String): Manga {
-    return object : Manga {
-        override fun title() = this@setId.title()
-
-        override fun rating() = this@setId.rating()
-
-        override fun coverUrl() = this@setId.coverUrl()
-
+    return object : Manga by this {
         override val id: String
             get() = id_
     }

@@ -3,6 +3,7 @@ package anime.stream.favourites
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import anime.stream.core.interfaces.Searchable
 import anime.stream.core.services.FavouriteType
 import anime.stream.core.services.models.manga.setId
 import anime.stream.favourites.di.injector
@@ -11,7 +12,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_anime.*
 import javax.inject.Singleton
 
-class AnimeFragment : Fragment(R.layout.fragment_anime) {
+class AnimeFragment : Fragment(R.layout.fragment_anime), Searchable {
 
     private val mangaNetworkService by lazy { injector.networkService }
     private val favouriteService by lazy { injector.serviceImpl }
@@ -38,5 +39,9 @@ class AnimeFragment : Fragment(R.layout.fragment_anime) {
         @JvmStatic
         @Synchronized
         fun getInstance() = AnimeFragment()
+    }
+
+    override fun search(query: String) {
+
     }
 }

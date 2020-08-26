@@ -10,12 +10,16 @@ import dagger.Component
 
 @FavouriteScope
 @Component(
-    modules = [AssistedModule::class, FavouritesModule::class, CoreModule::class]
-)
+    modules = [AssistedModule::class, FavouritesModule::class, CoreModule::class],
+
+    )
 interface FavouriteComponent {
     @Component.Factory
     interface Factory {
-        fun create(@BindsInstance networkService: MangaNetworkService, @BindsInstance app: Context): FavouriteComponent
+        fun create(
+            @BindsInstance networkService: MangaNetworkService,
+            @BindsInstance app: Context
+        ): FavouriteComponent
     }
 
     val viewModel: InjectingSavedStateViewModelFactory

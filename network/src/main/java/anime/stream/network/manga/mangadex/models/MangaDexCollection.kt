@@ -25,7 +25,7 @@ class MangaDexCollection : Collection {
 
     private val collection = Array(5) { mutableListOf<MangaDexTitles>() }
 
-    fun process() {
+    private fun process() {
         collection[UPDATES] = parseMangaUpdates(mangaUpdatesElement)
         collection[TOP_MANGA] = parseTopManga(topMangaElement)
         collection[FEATURED] = parseFeatured(featuredElement)

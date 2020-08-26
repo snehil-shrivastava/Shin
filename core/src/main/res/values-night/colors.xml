@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_sheet_start">@color/black_alpha_0</color>
+    <color name="bg_sheet_ce">@color/black_900</color>
+</resources>

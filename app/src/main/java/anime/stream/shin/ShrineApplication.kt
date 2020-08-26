@@ -14,11 +14,15 @@ import anime.stream.network.di.NetworkComponent
 import anime.stream.shin.di.ApplicationComponent
 import anime.stream.shin.di.ComponentProvider
 import anime.stream.shin.di.DaggerApplicationComponent
+import anime.stream.viewer.di.DaggerViewerComponent
+import anime.stream.viewer.di.ViewerComponent
+import anime.stream.viewer.di.ViewerComponentProvider
 import com.facebook.drawee.backends.pipeline.Fresco
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 
-class ShrineApplication : Application(), ComponentProvider, FavouriteComponentProvider {
+class ShrineApplication : Application(), ComponentProvider, FavouriteComponentProvider,
+    ViewerComponentProvider {
 
     override val favouriteComponent: FavouriteComponent by lazy {
         DaggerFavouriteComponent.factory().create(networkService, this)
@@ -30,6 +34,11 @@ class ShrineApplication : Application(), ComponentProvider, FavouriteComponentPr
 
     private val networkComponent: NetworkComponent by lazy {
         DaggerNetworkComponent.factory().create()
+    }
+
+
+    override val viewerComponent: ViewerComponent by lazy {
+        DaggerViewerComponent.factory().create(networkService, favouriteService, this)
     }
 
     // Services
@@ -62,6 +71,7 @@ class ShrineApplication : Application(), ComponentProvider, FavouriteComponentPr
             }
         }
     }
+
 
 }
 

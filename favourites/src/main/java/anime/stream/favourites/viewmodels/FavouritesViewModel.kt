@@ -3,6 +3,7 @@ package anime.stream.favourites.viewmodels
 import androidx.databinding.ObservableField
 import androidx.lifecycle.SavedStateHandle
 import anime.stream.core.di.AssistedSavedStateViewModelFactory
+import anime.stream.favourites.util.Constants.SEARCH_STATE
 import anime.stream.favourites.util.Constants.TAB_STATE
 import anime.stream.favourites.util.ObservableViewModel
 import com.squareup.inject.assisted.Assisted
@@ -11,12 +12,14 @@ import com.squareup.inject.assisted.AssistedInject
 class FavouritesViewModel @AssistedInject constructor(
     @Assisted private val savedStateHandle: SavedStateHandle
 ) : ObservableViewModel() {
-    // must be inside of the ViewModel class!
+
+    val searchText = ObservableField<String>()
 
     val mState = ObservableField<Boolean>()
 
     init {
         mState.set(savedStateHandle[TAB_STATE] ?: true)
+        searchText.set(savedStateHandle[SEARCH_STATE] ?: "")
     }
 
     fun selectAnimePage() {
